@@ -1,5 +1,3 @@
-# estoqueDjango
-
 --configurando ambiente--
 
 python -m venv venv
@@ -25,3 +23,5 @@ python manage.py migrate
 python manage.py createsuperuser
 
 python manage.py shell##
+
+python manage.py runserver
