@@ -30,7 +30,10 @@
           <tr>
             {% for produto in produtos %}
             <td scope="row">{{ produto.cod}}</td>
-            <td>{{ produto.name}}</td>
+            <td>
+              <a href="{% url 'product-detail' produto.id %}">
+                {{ produto.name}}
+              </a></td>
             <td>{{ produto.price}}</td>
             <td>{{ produto.qtd}}</td>
             
