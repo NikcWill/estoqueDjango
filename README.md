@@ -13,7 +13,7 @@ pip install -r requirements.txt
 -- inicar o projeto -- 
 
 python -m django startproject NOME_DO_PROJETO .
-python manage.py startapp NOME_DO_PROJETO
+python manage.py startapp NOME_DO_APP
 
 python manage.py makemigrations
 python manage.py migrate
