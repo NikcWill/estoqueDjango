@@ -14,6 +14,8 @@
     <H1>{{ product.name }}</H1>
     <h2>{{ product.price }}</h2>
     <h2>{{ product.category }}</h2>
+    <a href="{% url 'delete-product' product.id %}" class="btn btn-danger">Excluir Produto </a>
     <img id="imagem" src="{{ product.picture.url }}" alt="">
+
 </body>
 </html>
