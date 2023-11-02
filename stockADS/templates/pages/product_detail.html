@@ -11,10 +11,14 @@
     <title>Document</title>
 </head>
 <body>
-    <H1>{{ product.name }}</H1>
-    <h2>{{ product.price }}</h2>
-    <h2>{{ product.category }}</h2>
-    <a href="{% url 'delete-product' product.id %}" class="btn btn-danger">Excluir Produto </a>
+    <H1>Nome: {{ product.name }}</H1>
+    <h2>Preço: {{ product.price }}</h2>
+    <h2>categoria: {{ product.category }}</h2>
+    <h2>Quantidade: {{ product.qtd }}</h2>
+    <h2>Em estoque: {{ product.in_stock }}</h2>
+
+    <a href="{% url 'delete-product' product.id %}" class="btn btn-danger">Excluir unidade </a>
+    <a href="{% url 'sell-product' product.id %}" class="btn btn-secondary">Vender Produto </a>
     <img id="imagem" src="{{ product.picture.url }}" alt="">
 
 </body>

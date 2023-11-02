@@ -9,19 +9,34 @@ def index(request):
   #return HttpResponse('Estou no Django')
   #from Product select *
 
-  produtos = Products.objects.all()
+  #produtos = Products.objects.all()
+  produtos = Products.objects.filter( in_stock=True)
   #for produto in produtos:
     #print(f'{produto.name} + {produto.price}')
   return render(request, 'pages/index.html', {'produtos':produtos})
-  produtos = Products.objects.all()
-  #for produto in produtos:
-    #print(f'{produto.name} + {produto.price}')
+  
+def search_product(request):
+  q = request.GET.get('q')
+  produtos = Products.objects.filter(name__icontains=q, cod__startswith=q, in_stock=True)
   return render(request, 'pages/index.html', {'produtos':produtos})
-
+  
 
 def product_detail(request, id):
   product = Products.objects.get(id=id)
   return render(request, 'pages/product_detail.html', {'product': product})
+
+def sell_product(request, id):
+  product = Products.objects.get(id=id)
+  if product.qtd > 0:
+    product.qtd -= 1
+    product.save()
+    
+    if product.qtd <= 0:
+      product.in_stock = False
+      product.save()
+      return redirect('home')
+    
+  return redirect('product-detail', id)
 
 def delete_product(request, id):
   product = Products.objects.get(id=id)

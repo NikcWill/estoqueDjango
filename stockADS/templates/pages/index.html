@@ -14,7 +14,11 @@
     <header>
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="#">StoqueADS</a>
-        </nav>
+            <form action="{% url 'search-product' %}" class="d-flex gap-1">
+              <input type="search" name="q">
+              <button class="btn btn-success">Buscar</button>
+            </form>
+          </nav>
     </header>
 
     <a href="{% url 'add-product' %}" class=" btn btn-primary mt-5 mb-1"> adicionar produto</a>

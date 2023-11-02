@@ -23,7 +23,7 @@ class Products(models.Model):
 
     name = models.CharField(max_length=255)
     category = models.ForeignKey(Categories, on_delete=models.CASCADE, blank=True)
-    picture = models.ImageField(blank=False)
+    picture = models.ImageField(blank=True)
     cod = models.IntegerField(unique=True)
     price = models.DecimalField(max_digits=12, decimal_places=2)
     description = models.TextField()
