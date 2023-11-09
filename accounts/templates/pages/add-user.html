@@ -13,11 +13,11 @@
 <body>
     <h1> Adicionar o malandro</h1>
     <form method="POST"  class="container mt-5" enctype="multipart/form-data">{% csrf_token %}
-        <input type="text" name="name" placeholder="Nome">
-        <input type="text" name="usuario" placeholder="Usuário">
-        <input type="text" name="email" placeholder="Email">
-        <input type="text" name="senha" placeholder="Senha">
-    
+        <input type="text" name="name" placeholder="Nome"><br>
+        <input type="text" name="usuario" placeholder="Usuário"><br>
+        <input type="text" name="email" placeholder="Email"><br>
+        <input type="text" name="senha" placeholder="Senha"><br>
+        <input type="text" name="senha-repete" placeholder="Repita sua senha"><br>
         <button type="submit">Salvar</button>
     </form>
 </body>

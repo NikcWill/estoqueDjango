@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse,redirect
 from django.contrib import auth, messages
-from.models import User 
+from django.contrib.auth.models import User
 from random import randint
 
 def user_login(request):
@@ -30,14 +30,15 @@ def add_user(request ):
     usuario = request.POST.get('usuario')
     email = request.POST.get('email')
     senha = request.POST.get('senha')
+    senhaconfirma = request.POST.get('senha-repete')
     cod = randint(100, 10000)
-    in_stock = True
+    is_active = True
 
-    User.objects.create(
-      name=name, cod=cod, usuario=usuario, email=email,
-      senha=senha, in_stock=in_stock
+    User.objects.create_user(
+      username=usuario, email=email,
+      password=senha
     )
-    return redirect('home')
+    return redirect('login')
     
   else:
     return render(request,'pages/add-user.html')  
