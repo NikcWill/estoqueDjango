@@ -11,7 +11,7 @@ def index(request):
   #from Product select *
 
   #produtos = Products.objects.all()
-  produtos = Products.objects.filter( in_stock=True)
+  produtos = Products.objects.filter( user_id=request.user.id, in_stock=True)
   #for produto in produtos:
     #print(f'{produto.name} + {produto.price}')
   return render(request, 'pages/index.html', {'produtos':produtos})
@@ -59,6 +59,7 @@ def add_product(request, ):
     in_stock = True
 
     Products.objects.create(
+      user_id=request.user.id,
       name=name, cod=cod, category_id=category, picture=picture,
       price=price, description=description, qtd=qtd, discount=discount,
       created_at=created_at, in_stock=in_stock

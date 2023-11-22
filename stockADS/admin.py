@@ -3,7 +3,7 @@ from.models import Products
 from.models import Categories
 
 class ProdutsAdmin(admin.ModelAdmin):
-    list_display=['name', 'price','in_stock'] 
+    list_display=['id','name', 'price','in_stock'] 
     list_filter=['in_stock']
     #list_editable = ['size']
     search_fields = ['name']

@@ -41,6 +41,10 @@ def add_user(request ):
     return redirect('login')
     
   else:
-    return render(request,'pages/add-user.html')  
+    return render(request,'pages/add-user.html') 
+
+def logout(request):
+  auth.logout(request)
+  return redirect('login') 
  
     
