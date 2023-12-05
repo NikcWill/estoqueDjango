@@ -26,5 +26,8 @@ python manage.py shell##
 
 python manage.py runserver
 
--- envio de email --
-ir na configuração de duar etapas - senhas de app
+
+
+git add .
+git commit -m "acounts configu"
+git push origin HEAD
